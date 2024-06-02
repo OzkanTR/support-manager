@@ -1,1 +1,6 @@
 /* Your Custom CSS Goes here */
+
+.app-header .navbar .navbar-nav > li > a {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+}

@@ -1,0 +1,102 @@
+﻿@model Support_Manager.Models.CasesModel
+
+@{
+    ViewData["Title"] = "CaseDetayları";
+    var item = Model.Cases.FirstOrDefault();
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/plugins/datatables/datatables.min.css")" />
+}
+
+<div class="page-description">
+    <h1>Case Detayları</h1>
+</div>
+
+<div>
+    <h4>Case</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.CaseNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.CaseNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.CaseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.CaseName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.CaseMessage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.CaseMessage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.CreateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.CreateDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.UpdateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.UpdateDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.CreatedUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.CreatedUser.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.Customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.Customer.CustomerId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.Follower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.Follower.FollowerUserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.Program)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.Program.ProgramId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.Status.StatusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.UpdateUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.UpdateUser.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => item.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => item.User.UserId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@item?.CaseId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/plugins/datatables/datatables.min.js")"></script>
+    <script src="@Url.Content("~/js/pages/datatables.js")"></script>
+}

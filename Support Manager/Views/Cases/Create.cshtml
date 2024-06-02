@@ -1,0 +1,44 @@
+﻿@model Support_Manager.DataAccess.Case
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h4>Case Oluştur</h4>
+<hr />
+<form method="post" enctype="multipart/form-data" asp-controller="Cases" asp-action="Create">
+    <div class="row m-t-lg">
+        <div class="col-md-8">
+            <label for="settingsInputSubject" class="form-label">Konu</label>
+            <input type="text" asp-for="CaseName" class="form-control" id="settingsInputSubject">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="ProgramId" class="form-label">Program</label>
+            <div class="form-group">
+                <select asp-for="ProgramId" class="form-control" asp-items="ViewBag.ProgramId"></select>
+                <span asp-validation-for="ProgramId" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <label for="settingsAbout" class="form-label">Açıklama</label>
+        <textarea class="form-control" asp-for="CaseMessage" id="settingsAbout" maxlength="500" rows="4" aria-describedby="settingsAboutHelp"></textarea>
+        <div id="emailHelp" class="form-text">Lütfen max 500 karakter giriş yapınız.</div>
+    </div>
+    <br />
+    <div class="mb-3 ">
+        <label for="formFileMd" class="form-label">Belge</label>
+        <input class="form-control" id="formFileMd" type="file">
+    </div>
+    <div class="float-end mt-2">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
